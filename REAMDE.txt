@@ -1,0 +1,9 @@
+For start download all libraries from requirements.txt
+
+Then "python manage.py runserver".
+
+For admin panel:
+localhost:8000/admin
+
+login: admin
+password: 1234
