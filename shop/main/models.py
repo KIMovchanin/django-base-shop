@@ -15,7 +15,8 @@ class Category(models.Model):
 
 
 class Product(models.Model):
-    category = models.ForeignKey(Category, related_name='products', on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, related_name='products', on_delete=models.CASCADE) # Благодаря этому при
+    # создании продукта у нас можно будет выбрать категорию продукта.
     name = models.CharField(max_length=100, db_index=True)
     slug = models.SlugField(max_length=100, unique=100)
     image = models.ImageField(upload_to='products/%Y/%m/%d', blank=True)
