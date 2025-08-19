@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Category, Product
+from cart.forms import CardAddProductForm
 
 # Делаем функциональное представление. Не классовое, так как проект не большой
 # Добавили category_slug=None для указания, что фильровать нам ничего не надо
@@ -26,5 +27,9 @@ def product_detail(request, id, slug):
     related_products = Product.objects.filter(category=product.category,
                                                available=True).exclude(id=product.id)[:4]
 
+    cart_product_form = CardAddProductForm()
+
     return render(request, 'main/product/detail.html', {'product': product,
-                                                        'related_products': related_products})
+                                                        'related_products': related_products,
+                                                        'cart_product_form': cart_product_form
+                                                        })

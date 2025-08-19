@@ -27,7 +27,11 @@
             </div>
 
             <div class="mt-4">
-                <button class="btn btn-primary btn-lg">Добавить в корзину</button>
+                <form action="{% url 'cart:cart_add' product.id %}" method="post">
+                    {{ cart_product_form }}
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-primary btn-lg">Добавить в корзину</button>
+                </form>
             </div>
         </div>
     </div>
